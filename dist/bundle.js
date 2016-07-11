@@ -21676,18 +21676,18 @@
 	  function CommentBox(props) {
 	    _classCallCheck(this, CommentBox);
 	
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(CommentBox).call(this, props));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(CommentBox).call(this));
 	
-	    _this.state = {
-	      data: []
-	    };
+	    _this.state = { data: [] };
+	    _this.loadCommentsFromServer = _this.loadCommentsFromServer.bind(_this);
+	    _this.handleCommentSubmit = _this.handleCommentSubmit.bind(_this);
 	    return _this;
 	  }
 	
 	  _createClass(CommentBox, [{
 	    key: 'loadCommentsFromServer',
-	    value: function loadCommentsFromServer(props) {
-	      $.ajax(props.url, {
+	    value: function loadCommentsFromServer() {
+	      $.ajax(this.props.url, {
 	        dataType: 'json',
 	        cache: false,
 	        success: function (data) {
@@ -21918,6 +21918,7 @@
 	
 	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(CommentForm).call(this, props));
 	
+	    _this.handleSubmit = _this.handleSubmit.bind(_this);
 	    _this.state = {
 	      author: '',
 	      text: ''

@@ -5,10 +5,10 @@ import CommentForm from './CommentForm.jsx';
 class CommentBox extends React.Component {
 
   constructor(props) {
-    super(props);
-    this.state = {
-      data: []
-    };
+    super();
+    this.state = { data: [] };
+    this.loadCommentsFromServer = this.loadCommentsFromServer.bind(this);
+    this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
   }
 
   loadCommentsFromServer() {

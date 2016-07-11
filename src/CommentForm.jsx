@@ -4,8 +4,9 @@ class CommentForm extends React.Component {
 
   constructor(props) {
     super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
-      author: '', 
+      author: '',
       text: ''
     };
   }
@@ -32,20 +33,20 @@ class CommentForm extends React.Component {
   render() {
     return (
       <form className="commentForm" onSubmit={this.handleSubmit}>
-        <input 
-          type="text" 
-          placeholder="Your name" 
-          style={{"width" : "250px"}} 
+        <input
+          type="text"
+          placeholder="Your name"
+          style={{"width" : "250px"}}
           value={this.state.author}
           onChange={this.handleAuthorChange.bind(this)}
         />
         <br />
         <textarea
-          placeholder="Say something..." 
+          placeholder="Say something..."
           style={{"width" : "250px"}}
           rows="5"
           value={this.state.text}
-          onChange={this.handleTextChange.bind(this)} 
+          onChange={this.handleTextChange.bind(this)}
         />
         <br />
         <input type="submit" value="Post Comment" />
